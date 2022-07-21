@@ -38,7 +38,9 @@ void MainWindow::on_DrawButton_clicked()
 void MainWindow::on_actSave_triggered()
 {
     Widget* dWidget = new Widget(this,this);
-    QString curPath=QApplication::applicationDirPath()+"/Path.txt";
+    QDateTime current_date_time =QDateTime::currentDateTime();
+    QString current_date =current_date_time.toString("yyyyMMddhhmmss");
+    QString curPath=QApplication::applicationDirPath()+"/PathRecord/"+current_date+".txt";
     std::cout<<curPath.toStdString().data()<<std::endl;
     dWidget->MakeTxt(curPath);
     delete dWidget;
